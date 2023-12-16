@@ -10,12 +10,12 @@ const Home = () => {
 
   const getHotelByQueryReq = async () =>{
     if(query==='') getHotelReq()
-    await axios.get(`http://localhost:5000/api/v1/hotel?query=${query}`).then(res => setHotels(res.data.hotel))
+    await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/hotel?query=${query}`).then(res => setHotels(res.data.hotel))
     .catch(err =>console.log(err))
   }
 
   const getHotelReq = async () =>{
-    await axios.get("http://localhost:5000/api/v1/hotels").then(res =>setHotels(res.data.hotels))
+    await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/hotels`).then(res =>setHotels(res.data.hotels))
     .catch(err =>console.log(err))
   }
   useEffect(() => {

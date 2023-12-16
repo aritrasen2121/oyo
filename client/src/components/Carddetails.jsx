@@ -9,7 +9,7 @@ const Carddetails = () => {
 
   const getHotelReq = async () => {
     await axios
-      .get(`http://localhost:5000/api/v1/hotel/${id}`)
+      .get(`${import.meta.env.VITE_BASE_URL}/api/v1/hotel/${id}`)
       .then((res) => setHotalDetails(res.data.hotel))
       .catch((err) => console.log(err));
   };
@@ -21,11 +21,11 @@ const Carddetails = () => {
     if(localStorage.getItem('name')!=null){
       const {
         data: { key },
-      } = await axios.get("http://localhost:5000/api/v1/getkey");
+      } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/getkey`);
   
       const {
         data: { order },
-      } = await axios.post("http://localhost:5000/api/v1/checkout", {
+      } = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/checkout`, {
         amount,
       });
       const options = {
@@ -35,7 +35,7 @@ const Carddetails = () => {
         name: "OYO rooms",
         description: "Test Transaction",
         order_id: order.id,
-        callback_url: "http://localhost:5000/api/v1/paymentverification",
+        callback_url: `${import.meta.env.VITE_BASE_URL}/api/v1/paymentverification`,
         prefill: {
           name: localStorage.getItem('name'),
           email: "gaurav.kumar@example.com",

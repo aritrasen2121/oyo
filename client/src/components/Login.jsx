@@ -11,7 +11,7 @@ const Login = () => {
     const navigate=useNavigate()
 
     const handleSignup = async () => {
-      await axios.post(`http://localhost:5000/api/v1/register`, {
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/register`, {
         name,
         email,
         password,
@@ -27,7 +27,7 @@ const Login = () => {
     };
   
     const handleLogin = async () => {
-      await axios.post(`http://localhost:5000/api/v1/login`, {
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/login`, {
         email,
         password
       }).then(res => {
