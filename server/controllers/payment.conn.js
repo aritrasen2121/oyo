@@ -30,7 +30,7 @@ export const paymentVerification = catchAsyncError(async (req, res) => {
   if (isAuthentic) {
     
     res.redirect(
-      `https://sage-sunburst-7bbe7a.netlify.app`
+      `https://sage-sunburst-7bbe7a.netlify.app/paymentsuccessful`
     );
   } else {
     res.status(400).json({
