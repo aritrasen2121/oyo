@@ -63,15 +63,15 @@ const Carddetails = () => {
     "This hotel is serviced under the trade name of The Orchid Residency as per quality standards of OYO",
   ];
   return (
-    <>
+    <div className="pb-10">
       {hotalDetails && (
         <>
-          <div className="h-96 flex justify-center">
+          <div className="h-96 mt-5 flex justify-center">
             <img height={"100%"} src={hotalDetails.image} alt="" />
           </div>
 
-          <div className="p-2 flex h-44 md:mx-20">
-            <div className="w-2/3">
+          <div className="p-2 flex flex-col sm:flex-row gap-5 h-44 mt-5  md:mx-20">
+            <div className=" md:w-2/3">
               <div className="flex justify-between">
                 <div className=" font-bold text-4xl">
                   {hotalDetails.name} [{hotalDetails.location}]
@@ -112,8 +112,15 @@ const Carddetails = () => {
               <div className="font-semibold text-lg mt-5 mb-3">
                 Find on maps
               </div>
+              <iframe
+        src={hotalDetails.maplocation}
+        width={'100%'}
+        height="450"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
             </div>
-            <div className="border-2 w-1/3 rounded-md h-96">
+            <div className="border-2 md:w-1/3 rounded-md h-96">
               <div className="h-10 rounded-sm text-center text-white pt-1 bg-gradient-to-r from-rose-500 via-red-500 to-pink-500">
               LOGIN NOW TO GET UPTO 15% LOWER PRICES
               </div>
@@ -146,7 +153,7 @@ const Carddetails = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

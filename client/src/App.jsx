@@ -8,14 +8,14 @@ import PaymentSucessful from './components/PaymentSucessful';
 const App =() =>{
 
   return (
-    <>
+    <div className='pb-10'>
      <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>} />
       <Route path='/hotel/:id' element={<Carddetails/>} />
       <Route path='/paymentsuccessful' element={<PaymentSucessful/>} />
      </Routes>
-    </>
+    </div>
   )
 }
 
