@@ -28,7 +28,8 @@ export const getHotelById = catchAsyncError(async (req,res,next) =>{
 
 export const getHotelByQuery = catchAsyncError(async (req,res,next) =>{
     try {
-        const {query} =req.query;
+        let {query} =req.query;
+        query=query.toLowerCase()
         const hotel=await Hotel.find({$or:[{name:query}, {location: query}] });
         res.status(200).json({
             success: true,
